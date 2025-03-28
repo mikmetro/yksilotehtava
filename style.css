@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --theme-color: #22ee22;
+  --danger: oklch(0.637 0.237 25.331);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,29 +12,33 @@
 }
 
 body {
-  background: #444455;
-  padding: 1em;
-  font-family: arial;
+  background: #efeff7;
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 .header-wrapper {
   display: flex;
   justify-content: center;
+  padding: 1em;
 }
 
 header {
-  padding: 0.5em;
+  padding: 0.5em 1em;
   border-radius: 99px;
   display: grid;
   background: white;
   width: min(1000px, 80vw);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 8fr 1fr;
   align-items: center;
 }
 
 .header-search-wrapper {
-  display: block;
+  display: flex;
   justify-self: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -36,13 +47,403 @@ header {
   border: 1px solid gray;
   padding: 0.5em 0.8em;
   font-size: 1rem;
-  width: 100%;
+  width: min(500px, 100%);
+  font-family: "Montserrat";
+  font-weight: 600;
 }
 
 .header-search-wrapper > input:focus {
-  outline: 1px solid #44ff;
+  outline: 1px solid var(--theme-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1em;
+  padding: 2em 4em;
+}
+
+h1 {
+  font-size: clamp(2rem, 9dvw, 4rem);
 }
 
 .header-profile-button {
+  display: grid;
+  place-items: center;
+  border: 2px solid black;
   justify-self: flex-end;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.header-profile-button:hover {
+  background: #000;
+}
+
+.header-profile-button:hover > img {
+  filter: invert();
+}
+
+header > a {
+  position: relative;
+  height: 100%;
+}
+
+.header-logo {
+  height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+}
+
+.main-restaurants {
+  position: relative;
+}
+
+.main-restaurants-left,
+.main-restaurants-right {
+  border: none;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  outline: none;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75% 75%;
+  transition: 0.1s;
+}
+
+.main-restaurants-left:active,
+.main-restaurants-right:active {
+  filter: brightness(0.9);
+}
+
+.main-restaurants-left {
+  left: -1.5rem;
+  background-image: url("assets/chevron-left.svg");
+}
+
+.main-restaurants-right {
+  right: -1.5rem;
+  background-image: url("assets/chevron-right.svg");
+}
+
+.main-restaurants-carousel-wrapper {
+  overflow: clip;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.main-restaurants-carousel {
+  position: relative;
+  display: flex;
+  gap: 2em;
+  transition: 0.2s;
+  height: max(40dvh, 275px);
+}
+
+.main-restaurants-item {
+  border-radius: 1rem;
+  width: min(100%, 550px);
+  flex: 1 0 auto;
+  overflow: clip;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.main-restaurants-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0, black 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.main-restaurants-item > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.main-restaurants-item:hover > img {
+  scale: 1.02;
+}
+
+.main-restaurants-item-description {
+  display: grid;
+  color: white;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  padding: 1em;
+  z-index: 99;
+}
+
+.main-restaurants-item-description-name {
+  font-size: 2rem;
+  grid-column: 1 / 3;
+}
+
+.main-restaurants-item-description-address {
+  font-size: 1.2rem;
+}
+
+.main-restaurants-item-description-distance {
+  font-size: 1.2rem;
+  justify-self: flex-end;
+}
+
+.main-restaurants-map {
+  background: gray;
+  width: 100%;
+  height: 50dvh;
+  border-radius: 1rem;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 1em 4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+footer a,
+p {
+  color: white;
+  display: block;
+  margin: 0.3em 0;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    padding: 2em;
+  }
+}
+
+/* Login page */
+
+.login-main {
+  display: grid;
+  place-items: center;
+}
+
+.login-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  background: white;
+  border-radius: 1rem;
+  gap: 1em;
+}
+
+.login-card > h2 {
+  font-size: 1.8rem;
+}
+
+.login-item {
+  display: grid;
+  gap: 0.1em;
+  width: 100%;
+}
+
+.login-item > label {
+  font-size: 1.1rem;
+}
+
+.login-item > input {
+  border: 2px solid gray;
+  border-radius: 8px;
+  padding: 0.5em;
+  font-size: 1rem;
+  font-family: "Montserrat";
+}
+
+.login-item > input:focus {
+  outline: 1px solid var(--theme-color);
+}
+
+.login-button {
+  border: 2px solid var(--theme-color);
+  border-radius: 8px;
+  padding: 0.2em 1em;
+  font-family: "Montserrat";
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.1s;
+  margin-top: 2em;
+}
+
+.login-button:hover {
+  background: var(--theme-color);
+}
+
+.login-switch {
+  color: #404040;
+}
+
+/* Profile page */
+
+.profile-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4em;
+}
+
+.profile-settings,
+.profile-favorites {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-favorites {
+  flex: 1;
+}
+
+.profile-favorites-items-wrapper {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+  position: relative;
+}
+
+.profile-favorites-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-right: 1em;
+  position: absolute;
+  inset: 0;
+}
+
+.profile-title {
+  font-size: 2rem;
+}
+
+.profile-user {
+  margin: 1em 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-user-pfp-wrapper {
+  border-radius: 50%;
+  overflow: clip;
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+}
+
+.profile-user-pfp-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: 0.1s;
+  background-color: transparent;
+  mask-image: url("assets/upload.svg");
+  mask-position: center;
+  mask-size: 50% 50%;
+  mask-repeat: no-repeat;
+}
+
+.profile-user-pfp-wrapper:hover::after {
+  background-color: white;
+  mask-size: 75% 75%;
+}
+
+.profile-user-pfp {
+  object-fit: cover;
+  height: inherit;
+  width: inherit;
+}
+
+.profile-user-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.profile-user-pfp-wrapper > input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.profile-favorites-item {
+  display: flex;
+  border-radius: 16px;
+  overflow: clip;
+  gap: 1em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-favorites-item > img {
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.profile-favorites-item-description {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.profile-favorites-item-remove {
+  margin-left: auto;
+  border-radius: 4px;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: none;
+  cursor: pointer;
+  border: 2px solid var(--danger);
+  transition: 0.1s;
+  position: relative;
+}
+
+.profile-favorites-item-remove::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask-image: url("/assets/trash.svg");
+  mask-size: 75%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  background: black;
+  transition: 0.1s;
+}
+
+.profile-favorites-item-remove:hover {
+  background: var(--danger);
+}
+
+.profile-favorites-item-remove:hover::after {
+  background: white;
 }

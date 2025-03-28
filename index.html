@@ -1,20 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="style.css" rel="stylesheet" />
-    <script src="script.js" type="module"></script>
-  </head>
-  <body>
-    <section class="header-wrapper">
-      <header>
-        <img src="" alt="logo" />
-        <div class="header-search-wrapper"><input type="search" /></div>
-        <img class="header-profile-button" src="" alt="My profile" />
-      </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js" type="module"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <section class="header-wrapper">
+    <header>
+      <a href="index.html"><img class="header-logo" src="assets/logo.png" alt="logo" /></a>
+      <div class="header-search-wrapper"><input type="search" placeholder="Etsi ravintola" /></div>
+      <a href="profile/login.html" class="header-profile-button"><img src="assets/user.svg" alt="My profile" /></a>
+    </header>
+  </section>
+  <main>
+    <h1>Tervetuloa!</h1>
+    <section class="main-restaurants">
+      <button class="main-restaurants-left"></button>
+      <button class="main-restaurants-right"></button>
+      <div class="main-restaurants-carousel-wrapper">
+        <div class="main-restaurants-carousel" style="transform: translateX(0);">
+          <div class="main-restaurants-item">
+            <img src="https://placecats.com/neo_banana/300/200" />
+            <div class="main-restaurants-item-description">
+              <h3 class="main-restaurants-item-description-name">Metropolia Ravintola</h3>
+              <span class="main-restaurants-item-description-address">Myllypuron tie 3</span>
+              <span class="main-restaurants-item-description-distance">3.0km</span>
+            </div>
+          </div>
+          <div class="main-restaurants-item">
+            <img src="https://placecats.com/neo_banana/300/200" />
+            <div class="main-restaurants-item-description">
+              <h3 class="main-restaurants-item-description-name">Metropolia Ravintola</h3>
+              <span class="main-restaurants-item-description-address">Myllypuron tie 3</span>
+              <span class="main-restaurants-item-description-distance">3.0km</span>
+            </div>
+          </div>
+          <div class="main-restaurants-item">
+            <img src="https://placecats.com/neo_banana/300/200" />
+            <div class="main-restaurants-item-description">
+              <h3 class="main-restaurants-item-description-name">Metropolia Ravintola</h3>
+              <span class="main-restaurants-item-description-address">Myllypuron tie 3</span>
+              <span class="main-restaurants-item-description-distance">3.0km</span>
+            </div>
+          </div>
+          <div class="main-restaurants-item">
+            <img src="https://placecats.com/neo_banana/300/200" />
+            <div class="main-restaurants-item-description">
+              <h3 class="main-restaurants-item-description-name">Metropolia Ravintola</h3>
+              <span class="main-restaurants-item-description-address">Myllypuron tie 3</span>
+              <span class="main-restaurants-item-description-distance">3.0km</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </section>
-    <main></main>
-  </body>
+    <h2>Kartta</h2>
+    <section class="main-restaurants-map">
+
+    </section>
+  </main>
+  <footer>
+    <div>
+      <p>Copyright © 2025 Safka</p>
+    </div>
+    <div>
+      <a href="tel:+358441234567">Puhelin numero: +358 44 1234567</a>
+      <a href="mailto:support@safka.fi">Sähköposti: support@safka.fi</a>
+      <p>Osoite: Myllypuron tie 1</p>
+    </div>
+  </footer>
+</body>
+
 </html>
