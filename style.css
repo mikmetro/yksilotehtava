@@ -190,7 +190,7 @@ header > a {
 .main-restaurants-item-description {
   display: grid;
   color: white;
-  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  grid-template: 1fr auto / 1fr auto;
   padding: 1em;
   z-index: 99;
 }
@@ -432,7 +432,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  mask-image: url("/assets/trash.svg");
+  mask-image: url("./assets/trash.svg");
   mask-size: 75%;
   mask-position: center;
   mask-repeat: no-repeat;

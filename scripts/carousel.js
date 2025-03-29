@@ -14,16 +14,14 @@ function moveCarousel(direction) {
     .computedStyleMap()
     .get("transform")[0].x.value;
 
-  const gapOffSet = Math.floor(Math.abs(currentScroll) / itemWidth) * 32;
-
   if (direction === "right") {
     restaurantsContainer.style.transform = `translateX(${Math.max(
-      currentScroll - itemWidth - Math.max(gapOffSet, 32),
+      currentScroll - itemWidth - (currentScroll % (itemWidth + 32)) - 32,
       -restaurantsContainer.scrollWidth + restaurantsContainer.clientWidth
     )}px)`;
   } else if (direction === "left") {
     restaurantsContainer.style.transform = `translateX(${Math.min(
-      currentScroll + itemWidth + Math.min(gapOffSet, 32),
+      currentScroll + itemWidth - (currentScroll % (itemWidth + 32)) + 32,
       0
     )}px)`;
   }
