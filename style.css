@@ -278,8 +278,20 @@ p {
   font-family: "Montserrat";
 }
 
+.login-error {
+  color: red;
+}
+
+.login-try {
+  color: lightslategray;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .login-item > input:focus {
-  outline: 1px solid var(--theme-color);
+  border-color: var(--theme-color);
+  outline: none;
 }
 
 .login-button {
@@ -291,7 +303,7 @@ p {
   font-size: 1.2rem;
   cursor: pointer;
   transition: 0.1s;
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 
 .login-button:hover {
@@ -299,6 +311,7 @@ p {
 }
 
 .login-switch {
+  margin-top: 1em;
   color: #404040;
 }
 

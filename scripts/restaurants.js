@@ -1,14 +1,11 @@
-import { createElementWithClass } from "./helpers.js";
+import { createElementWithClass, getRestaurants } from "./helpers.js";
 
 async function loadRestaurants() {
-  const response = await fetch(
-    "https://media2.edu.metropolia.fi/restaurant/api/v1/restaurants"
-  );
-  const json = await response.json();
+  const json = await getRestaurants();
 
   const carousel = document.querySelector(".main-restaurants-carousel");
 
-  for (const restaurant of json) {
+  for (const restaurant of json.data) {
     const container = createElementWithClass("div", "main-restaurants-item");
 
     const coverImage = document.createElement("img");

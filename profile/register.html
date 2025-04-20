@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="/scripts/profile/register.js" type="module"></script>
     <link href="../style.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -12,25 +13,32 @@
 <body>
     <section class="header-wrapper">
         <header>
-            <a href="../index.html"><img class="header-logo" src="../assets/logo.png" alt="logo" /></a>
+            <a href="/"><img class="header-logo" src="/assets/logo.png" alt="logo" /></a>
             <div class="header-search-wrapper"><input type="search" placeholder="Etsi ravintola" /></div>
-            <button class="header-profile-button"><img src="../assets/user.svg" alt="My profile" /></button>
+            <a href="/profile/login.html" class="header-profile-button"><img src="/assets/user.svg"
+                    alt="My profile" /></a>
         </header>
     </section>
     <main class="login-main">
-        <section class="login-card">
+        <form class="login-card">
             <h2>Register</h2>
             <div class="login-item">
                 <label for="username">Username</label>
-                <input id="username" type="text">
+                <input id="username" minlength="3" type="text" placeholder="Minimum 3 characters">
+                <div class="login-error" id="username-error"></div>
+            </div>
+            <div class="login-item">
+                <label for="email">Email</label>
+                <input id="email" type="text">
+                <div class="login-error" id="email-error"></div>
             </div>
             <div class="login-item">
                 <label for="password">Password</label>
-                <input id="password" type="password">
+                <input id="password" minlength="5" type="password" placeholder="Minimum 5 characters">
             </div>
-            <button class="login-button">Login</button>
-            <a href="../profile/login.html" class="login-switch">Onko sinulla jo tili? Kirjaudu tästä</a>
-        </section>
+            <button class="login-button">Register</button>
+            <a href="/profile/login.html" class="login-switch">Onko sinulla jo tili? Kirjaudu tästä</a>
+        </form>
     </main>
     <footer>
         <div>
