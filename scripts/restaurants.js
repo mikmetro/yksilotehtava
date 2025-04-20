@@ -31,6 +31,10 @@ async function loadRestaurants() {
       "main-restaurants-item-description-distance"
     );
 
+    container.addEventListener("click", () => {
+      window.location.assign(`/restaurant/?id=${restaurant._id}`);
+    });
+
     descriptionContainer.append(
       restaurantName,
       restaurantAddress,

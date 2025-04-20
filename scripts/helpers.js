@@ -46,6 +46,19 @@ async function postLogin(username, password) {
   return loginResult;
 }
 
+async function getRestaurantById(id) {
+  if (!id) return null;
+  return await fetchData(`/restaurants/${id}`, {});
+}
+
+async function getRestaurantWeeklyMenuById(id, lang) {
+  return await fetchData(`/restaurants/weekly/${id}/${lang}`);
+}
+
+async function getRestaurantDailyMenuById(id, lang) {
+  return await fetchData(`/restaurants/daily/${id}/${lang}`);
+}
+
 export {
   createElementWithClass,
   getRestaurants,
@@ -53,4 +66,7 @@ export {
   fetchData,
   checkIfUsernameAvailable,
   postLogin,
+  getRestaurantById,
+  getRestaurantWeeklyMenuById,
+  getRestaurantDailyMenuById,
 };

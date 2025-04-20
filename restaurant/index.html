@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/scripts/restaurant/restaurant.js" type="module"></script>
+    <link href="../style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <section class="header-wrapper">
+        <header>
+            <a href="/"><img class="header-logo" src="/assets/logo.png" alt="logo" /></a>
+            <div class="header-search-wrapper"><input type="search" placeholder="Etsi ravintola" /></div>
+            <a href="/profile/login.html" class="header-profile-button"><img src="/assets/user.svg"
+                    alt="My profile" /></a>
+        </header>
+    </section>
+    <main class="restaurant-main">
+        <div>
+            <h1 class="restaurant-name"></h1>
+            <h3 class="restaurant-address"></h3>
+        </div>
+        <div class="restaurant-courses">
+            <div class="restaurant-select">
+                <div class="restaurant-select-slider"></div><button>Viikko</button><button>Tänään</button>
+            </div>
+            <div class="restaurant-courses-listing"></div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>Copyright © 2025 Safka</p>
+        </div>
+        <div>
+            <a href="tel:+358441234567">Puhelin numero: +358 44 1234567</a>
+            <a href="mailto:support@safka.fi">Sähköposti: support@safka.fi</a>
+            <p>Osoite: Myllypuron tie 1</p>
+        </div>
+    </footer>
+</body>
+
+</html>
