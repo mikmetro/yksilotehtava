@@ -1,3 +1,5 @@
+const RADIUS_OF_EARTH = 6371;
+
 function createElementWithClass(tag, className) {
   const element = document.createElement(tag);
   element.classList.add(className);
@@ -18,8 +20,26 @@ async function getCurrentUserByToken() {
   if (!userToken) return null;
 
   return await fetchData("/users/token", {
-    Authorization: `Bearer: ${userToken}`,
+    headers: {
+      Authorization: `Bearer: ${userToken}`,
+    },
   });
+}
+
+async function updateFavoriteRestaurant(favouriteRestaurant) {
+  const userToken = localStorage.getItem("token");
+  if (!userToken) return null;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer: ${userToken}`,
+    },
+    body: JSON.stringify({
+      favouriteRestaurant,
+    }),
+  };
+  return await fetchData("/users", fetchOptions);
 }
 
 async function getRestaurants() {
@@ -59,6 +79,24 @@ async function getRestaurantDailyMenuById(id, lang) {
   return await fetchData(`/restaurants/daily/${id}/${lang}`);
 }
 
+function distanceBetweenPoints(p1, p2) {
+  const distanceLat = ((p2[0] - p1[0]) * Math.PI) / 180;
+  const distanceLon = ((p2[1] - p1[1]) * Math.PI) / 180;
+
+  const lat1Radians = (p1[0] * Math.PI) / 180;
+  const lat2Radians = (p2[0] * Math.PI) / 180;
+
+  const haversine =
+    Math.sin(distanceLat / 2) ** 2 +
+    Math.sin(distanceLon / 2) ** 2 *
+      Math.cos(lat1Radians) *
+      Math.cos(lat2Radians);
+
+  const result = RADIUS_OF_EARTH * (2 * Math.asin(Math.sqrt(haversine)));
+
+  return result;
+}
+
 export {
   createElementWithClass,
   getRestaurants,
@@ -69,4 +107,6 @@ export {
   getRestaurantById,
   getRestaurantWeeklyMenuById,
   getRestaurantDailyMenuById,
+  updateFavoriteRestaurant,
+  distanceBetweenPoints,
 };

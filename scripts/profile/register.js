@@ -4,6 +4,7 @@ import {
   postLogin,
   getCurrentUserByToken,
 } from "../helpers.js";
+import "../header.js";
 
 const userData = await getCurrentUserByToken();
 if (userData) window.location.replace("/profile");

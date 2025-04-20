@@ -3,7 +3,9 @@ import {
   getRestaurantById,
   getRestaurantDailyMenuById,
   getRestaurantWeeklyMenuById,
+  updateFavoriteRestaurant,
 } from "../helpers.js";
+import "../header.js";
 
 const restaurantMain = document.querySelector(".restaurant-main");
 
@@ -20,6 +22,8 @@ const restaurantSelect = document.querySelector(".restaurant-select");
 const restaurantSelectSlider = document.querySelector(
   ".restaurant-select-slider"
 );
+const restaurantFavorite = document.querySelector(".restaurant-favorite");
+
 let isWeeklyMenu = false;
 
 swapMenuType();
@@ -31,6 +35,12 @@ if (restaurantResult.statusCode === 200) {
   console.log(restaurantData);
   restaurantName.textContent = restaurantData.name;
   restaurantAddress.textContent = `${restaurantData.address}, ${restaurantData.city}`;
+
+  restaurantFavorite.addEventListener("click", async () => {
+    console.log(restaurantData._id);
+    const x = await updateFavoriteRestaurant(restaurantData._id);
+    console.log(x);
+  });
 
   loadMenu();
 } else {

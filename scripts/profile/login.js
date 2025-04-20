@@ -1,4 +1,5 @@
 import { postLogin, getCurrentUserByToken } from "../helpers.js";
+import "../header.js";
 
 const userData = await getCurrentUserByToken();
 if (userData) window.location.replace("/profile");
@@ -10,8 +11,8 @@ async function loginUser(event) {
 
   loginError.textContent = "";
 
-  const username = document.querySelector("#username");
-  const password = document.querySelector("#password");
+  const username = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
 
   const loginResult = await postLogin(username, password);
 

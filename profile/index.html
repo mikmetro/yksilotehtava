@@ -14,7 +14,12 @@
     <section class="header-wrapper">
         <header>
             <a href="/"><img class="header-logo" src="/assets/logo.png" alt="logo" /></a>
-            <div class="header-search-wrapper"><input type="search" placeholder="Etsi ravintola" /></div>
+            <div class="header-search-wrapper">
+                <div class="header-search-content"><input class="header-search-content-input" type="search"
+                        placeholder="Etsi ravintola" />
+                    <div class="header-search-content-restaurants"></div>
+                </div>
+            </div>
             <a href="/profile/login.html" class="header-profile-button"><img src="/assets/user.svg"
                     alt="My profile" /></a>
         </header>
@@ -31,7 +36,7 @@
             </div>
         </section>
         <section class="profile-favorites">
-            <h2 class="profile-title">Suosikit</h2>
+            <h2 class="profile-title">Suosikki ravintola</h2>
             <div class="profile-favorites-items-wrapper">
                 <div class="profile-favorites-items">
                     <div class="profile-favorites-item">
@@ -42,40 +47,11 @@
                         </div>
                         <button class="profile-favorites-item-remove"></button>
                     </div>
-                    <div class="profile-favorites-item">
-                        <img src="https://placecats.com/neo_banana/300/200" />
-                        <div class="profile-favorites-item-description">
-                            <h3 class="profile-favorites-item-name">Metropolia Ravintola</h3>
-                            <span class="profile-favorites-item-address">Myllypuron tie 3</span>
-                        </div>
-                        <button class="profile-favorites-item-remove"></button>
-                    </div>
-                    <div class="profile-favorites-item">
-                        <img src="https://placecats.com/neo_banana/300/200" />
-                        <div class="profile-favorites-item-description">
-                            <h3 class="profile-favorites-item-name">Metropolia Ravintola</h3>
-                            <span class="profile-favorites-item-address">Myllypuron tie 3</span>
-                        </div>
-                        <button class="profile-favorites-item-remove"></button>
-                    </div>
-                    <div class="profile-favorites-item">
-                        <img src="https://placecats.com/neo_banana/300/200" />
-                        <div class="profile-favorites-item-description">
-                            <h3 class="profile-favorites-item-name">Metropolia Ravintola</h3>
-                            <span class="profile-favorites-item-address">Myllypuron tie 3</span>
-                        </div>
-                        <button class="profile-favorites-item-remove"></button>
-                    </div>
-                    <div class="profile-favorites-item">
-                        <img src="https://placecats.com/neo_banana/300/200" />
-                        <div class="profile-favorites-item-description">
-                            <h3 class="profile-favorites-item-name">Metropolia Ravintola</h3>
-                            <span class="profile-favorites-item-address">Myllypuron tie 3</span>
-                        </div>
-                        <button class="profile-favorites-item-remove"></button>
-                    </div>
                 </div>
             </div>
+        </section>
+        <section class="profile-misc">
+            <button class="profile-logout">Logout</button>
         </section>
     </main>
     <footer>

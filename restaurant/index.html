@@ -14,7 +14,12 @@
     <section class="header-wrapper">
         <header>
             <a href="/"><img class="header-logo" src="/assets/logo.png" alt="logo" /></a>
-            <div class="header-search-wrapper"><input type="search" placeholder="Etsi ravintola" /></div>
+            <div class="header-search-wrapper">
+                <div class="header-search-content"><input class="header-search-content-input" type="search"
+                        placeholder="Etsi ravintola" />
+                    <div class="header-search-content-restaurants"></div>
+                </div>
+            </div>
             <a href="/profile/login.html" class="header-profile-button"><img src="/assets/user.svg"
                     alt="My profile" /></a>
         </header>
@@ -23,6 +28,7 @@
         <div>
             <h1 class="restaurant-name"></h1>
             <h3 class="restaurant-address"></h3>
+            <button class="restaurant-favorite">Aseta suosikiksi</button>
         </div>
         <div class="restaurant-courses">
             <div class="restaurant-select">

@@ -1,9 +1,28 @@
-import { createElementWithClass, getRestaurants } from "./helpers.js";
+import {
+  createElementWithClass,
+  distanceBetweenPoints,
+  getRestaurants,
+} from "./helpers.js";
+
+const json = await getRestaurants();
+
+navigator.geolocation.getCurrentPosition((v) => {
+  Object.keys(json.data).forEach((i) => {
+    const distance = distanceBetweenPoints(
+      json.data[i].location.coordinates.reverse(),
+      [v.coords.latitude, v.coords.longitude]
+    );
+    json.data[i].distance = distance;
+  });
+
+  json.data.sort((a, b) => a.distance - b.distance);
+
+  loadRestaurants();
+});
 
 async function loadRestaurants() {
-  const json = await getRestaurants();
-
   const carousel = document.querySelector(".main-restaurants-carousel");
+  carousel.innerHTML = "";
 
   for (const restaurant of json.data) {
     const container = createElementWithClass("div", "main-restaurants-item");
@@ -30,6 +49,9 @@ async function loadRestaurants() {
       "span",
       "main-restaurants-item-description-distance"
     );
+
+    if (restaurant.distance)
+      restaurantDistance.textContent = `${restaurant.distance.toFixed(1)}km`;
 
     container.addEventListener("click", () => {
       window.location.assign(`/restaurant/?id=${restaurant._id}`);

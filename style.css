@@ -42,18 +42,60 @@ header {
   width: 100%;
 }
 
-.header-search-wrapper > input {
+.header-search-content {
+  width: min(450px, 100%);
+  position: relative;
+  z-index: 999;
+}
+
+.header-search-content-input {
   border-radius: 99px;
   border: 1px solid gray;
   padding: 0.5em 0.8em;
   font-size: 1rem;
-  width: min(500px, 100%);
+  width: 100%;
   font-family: "Montserrat";
   font-weight: 600;
 }
 
-.header-search-wrapper > input:focus {
+.header-search-content-input:focus {
   outline: 1px solid var(--theme-color);
+}
+
+.header-search-content-input:focus-within + div {
+  display: grid;
+}
+
+.header-search-content-restaurants-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.1s;
+  padding: 0.4em;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.header-search-content-restaurants-container:hover {
+  background-color: #efeff7;
+}
+
+.header-search-content-restaurants-container * {
+  color: black;
+}
+
+.header-search-content-restaurants-distance {
+  margin-left: auto;
+}
+
+.header-search-content-restaurants {
+  position: absolute;
+  display: none;
+  gap: 0.5em;
+  background: white;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0 0 16px 16px;
 }
 
 main {
@@ -324,8 +366,7 @@ p {
   gap: 4em;
 }
 
-.profile-settings,
-.profile-favorites {
+.profile-main > section {
   max-width: 1000px;
   width: 100%;
   display: flex;
@@ -461,6 +502,23 @@ p {
   background: white;
 }
 
+.profile-logout {
+  background: transparent;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  border: 2px solid var(--danger);
+  font-family: "Montserrat";
+  border-radius: 4px;
+  transition: 0.2s;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.profile-logout:hover {
+  color: white;
+  background: var(--danger);
+}
+
 /* Restaurant page */
 
 .restaurant-main {
@@ -469,6 +527,8 @@ p {
   width: fit-content;
   margin: 0 auto;
   gap: 2em;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .restaurant-select {
@@ -493,6 +553,10 @@ p {
   cursor: pointer;
   background: transparent;
   z-index: 99;
+}
+
+.restaurant-name {
+  font-size: 3rem;
 }
 
 .restaurant-select > button {
@@ -554,4 +618,21 @@ p {
 
 .restaurant-error > h3 {
   font-size: 2rem;
+}
+
+.restaurant-favorite {
+  border-radius: 4px;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  background: transparent;
+  cursor: pointer;
+  margin-top: 2em;
+  border: 1px solid gold;
+  transition: 0.2s;
+}
+
+.restaurant-favorite:hover {
+  background: gold;
+  color: white;
 }
